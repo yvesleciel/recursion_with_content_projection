@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, inject, Input} from '@angular/core';
+import {DataService} from "./data.service";
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'recursion-with-content-projection';
+
+  @Input() dataSource = inject(DataService).datasource;
+
+  isShow(data:any) {
+    data.isVisible = data.isVisible !== true;
+  }
+
+  getStyle(tab: number) {
+    return {'display': 'inline-block', 'margin-left': tab*40+'px'};
+  }
 }
