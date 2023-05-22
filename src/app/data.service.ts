@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
+import {HttpClient, HttpResponse} from "@angular/common/http";
+import {Observable} from "rxjs";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+  useFactory:(http: HttpClient) => new DataService(http),
+  deps:[HttpClient]
 })
 export class DataService {
 
@@ -56,7 +60,8 @@ export class DataService {
     },
     {type:'file', name: 'package.json', values: null, deep: 0}];
 
-  constructor() { }
+  constructor(private http: HttpClient) {
+  }
 
 }
 

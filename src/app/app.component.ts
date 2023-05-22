@@ -9,6 +9,7 @@ import {DataService} from "./data.service";
 export class AppComponent {
 
   @Input() dataSource = inject(DataService).datasource;
+  @Input() tab =false;
 
   isShow(data:any) {
     data.isVisible = data.isVisible !== true;

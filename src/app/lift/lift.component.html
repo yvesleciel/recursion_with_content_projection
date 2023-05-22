@@ -1,0 +1,10 @@
+<ng-container *ngFor="let source of dataSource; let i=index">
+  <ng-container *ngTemplateOutlet="content.tempRef; context: {$implicit: source, tab:tab, index:i}"></ng-container>
+</ng-container>
+
+
+
+
+
+
+
